@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>Moravia Test</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="left-column">
+            <div class="navigator">
+                <div class="profile">
+                    <div class="profile-picture"></div>
+                    <div class="profile-detail">
+                        <p><a href="#" class="profile-name menu-item">Dario Cabrera</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="menu-container">
+                    <ul>
+                        <li class="menu-item"><i class="img"></i>Clientes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="posts">
+                <div class="new-post">
+                    <ul class="horizontal-list">
+                        <li class="new-post-buttons menu-item button-add-picture" data-bind="click:availableForm"><i class="img"></i>Agregar Cliente</li>
+                    </ul>
+                </div>
+                <div class="post-container">
+                    <div class="new-post-content" data-bind="visible:showForm">
+                        <div class="form-container">
+                          <label class="form-title">
+                              <span>Name:</span>
+                              <input type="text" name="name" data-bind="value:name">
+                          </label>
+                          <label class="form-title">
+                              <span>Last Name:</span>
+                              <input type="text" name="lastName" data-bind="value:lastName">
+                          </label>
+                          <label class="form-title">
+                              <span>Age:</span>
+                              <input type="text" name="age" data-bind="value:age">
+                          </label>
+                          <label>
+                              <span>&nbsp;</span> 
+                              <button data-bind="click: addNewClient">Save</button>
+                          </label>   
+                      </div>
+                        <input class="new-post-textbox">
+                    </div>
+                </div>
+                <div class="post-container list-container">
+                    <ul data-bind="foreach: clients">
+                    <li>
+                      <label data-bind="text:$parent.showFullName($data)"></label>
+                      <a href="#" data-bind="click: function(){$parent.removeClient(id)}">Remove</a>
+                    </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="suggestions"></div>
+        </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+  <script src="js/Clients.js"></script>
+
+</body>
+
+</html>
